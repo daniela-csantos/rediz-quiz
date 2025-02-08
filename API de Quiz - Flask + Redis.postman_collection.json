@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "0ae86996-c451-470c-a4e0-c619ccbaf005",
+		"name": "API de Quiz - Flask + Redis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7915964"
+	},
+	"item": [
+		{
+			"name": "Criar Quiz",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Quiz de Matemática\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/quizzes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"quizzes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Pergunta no Quiz",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"question\": \"Quanto é 2 + 2?\",\n  \"alternatives\": [\"A. 3\", \"B. 4\", \"C. 5\", \"D. 6\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/quizzes/1/questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"quizzes",
+						"1",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar Resposta de Aluno",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"student_id\": \"student_1\",\n  \"selected_alternative\": \"B\",\n  \"time_taken\": 15\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/quizzes/1/questions/1/answers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"quizzes",
+						"1",
+						"questions",
+						"1",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking das Alternativas Mais Votadas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/quizzes/1/questions/1/rankings/alternatives",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"quizzes",
+						"1",
+						"questions",
+						"1",
+						"rankings",
+						"alternatives"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking das Questões",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/quizzes/1/rankings/questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"quizzes",
+						"1",
+						"rankings",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking dos Alunos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/quizzes/1/rankings/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"quizzes",
+						"1",
+						"rankings",
+						"students"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
